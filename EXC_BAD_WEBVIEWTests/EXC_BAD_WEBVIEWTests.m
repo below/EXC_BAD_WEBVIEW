@@ -7,9 +7,10 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <UIKit/UIKit.h>
 
 @interface EXC_BAD_WEBVIEWTests : XCTestCase
-
+@property (nonatomic) UIWebView *webView;
 @end
 
 @implementation EXC_BAD_WEBVIEWTests
@@ -17,7 +18,7 @@
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.webView = [[UIWebView alloc] init];
 }
 
 - (void)tearDown
@@ -26,9 +27,9 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testExistance
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    XCTAssertNotNil(self.webView, @"WebView must not be nil");
 }
 
 @end
